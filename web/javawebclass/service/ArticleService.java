@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ArticleService {
     private SqlSessionFactory sqlSessionFactory() {
-        String resource = "keep/mybatis-config.xml";
+        String resource = "mybatis-config.xml";
         InputStream inputStream = null;
         try {
             inputStream = Resources.getResourceAsStream(resource);
@@ -24,10 +24,10 @@ public class ArticleService {
         return new SqlSessionFactoryBuilder().build(inputStream);
     }
 
-    public List<Article> getOpenArticles(){
-        SqlSession sqlSession=sqlSessionFactory().openSession(true);
-        ArticleDao articalDao= sqlSession.getMapper(ArticleDao.class);
-        List<Article> articles=articalDao.showOpenArticles();
+    public List<Article> getOpenArticles() {
+        SqlSession sqlSession = sqlSessionFactory().openSession(true);
+        ArticleDao articalDao = sqlSession.getMapper(ArticleDao.class);
+        List<Article> articles = articalDao.showOpenArticles();
         sqlSession.close();
         return articles;
     }

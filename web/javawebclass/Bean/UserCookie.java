@@ -5,6 +5,22 @@ public class UserCookie {
     private String cvalue;
     private Integer userID;
 
+    public UserCookie() {
+        super();
+    }
+
+    public UserCookie(String cname, String cvalue) {
+        super();
+        this.cname = cname;
+        this.cvalue = cvalue;
+    }
+
+    public UserCookie(String cname, String cvalue, Integer userID) {
+        this.cname = cname;
+        this.cvalue = cvalue;
+        this.userID = userID;
+    }
+
     public String getCname() {
         return cname;
     }
@@ -28,24 +44,6 @@ public class UserCookie {
     public void setUserID(Integer userID) {
         this.userID = userID;
     }
-
-    public UserCookie() {
-        super();
-    }
-
-    public UserCookie(String cname, String cvalue) {
-        super();
-        this.cname = cname;
-        this.cvalue = cvalue;
-    }
-
-    public UserCookie(String cname, String cvalue, Integer userID) {
-        this.cname = cname;
-        this.cvalue = cvalue;
-        this.userID = userID;
-    }
-
-
 
     @Override
     public String toString() {

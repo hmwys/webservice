@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CheckSession extends HttpServlet {
-    Varify varify=new Varify();
+    Varify varify = new Varify();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        varify.varify(req,resp,false);
+        varify.varify(req, resp, false);
     }
 }

@@ -27,8 +27,8 @@ public class UserService {
         return new UserCookie(cname, cvalue);
     }
 
-    public UserCookie userCookie(Cookie[] cookies){
-        return new UserCookie(cookies[0].getName(),cookies[0].getValue());
+    public UserCookie userCookie(Cookie[] cookies) {
+        return new UserCookie(cookies[0].getName(), cookies[0].getValue());
     }
 
     public UserSession userSession(String sid, Integer ID) {
@@ -36,12 +36,12 @@ public class UserService {
     }
 
     private SqlSessionFactory sqlSessionFactory() {
-        String resource = "keep/mybatis-config.xml";
+        String resource = "mybatis-config.xml";
         InputStream inputStream = null;
-        SqlSessionFactory sqlSessionFactory=null;
+        SqlSessionFactory sqlSessionFactory = null;
         try {
             inputStream = Resources.getResourceAsStream(resource);
-            sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
+            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             inputStream.close();
             return sqlSessionFactory;
         } catch (IOException e) {
@@ -112,7 +112,7 @@ public class UserService {
         } else {
             SqlSession sqlSession = sqlSessionFactory().openSession(true);
             UserDao userDao = sqlSession.getMapper(UserDao.class);
-            userCookie=userDao.getUserIDByCookie(userCookie);
+            userCookie = userDao.getUserIDByCookie(userCookie);
             sqlSession.close();
             if (userCookie == null) {
                 return -1;
@@ -155,7 +155,6 @@ public class UserService {
     }
 
     /**
-     *
      * @param sid
      * @return
      */
@@ -189,7 +188,7 @@ public class UserService {
     public boolean delSession(UserSession userSession) {
         SqlSession sqlSession = sqlSessionFactory().openSession(true);
         UserDao userDao = sqlSession.getMapper(UserDao.class);
-        boolean result= userDao.delSession(userSession);
+        boolean result = userDao.delSession(userSession);
         sqlSession.close();
         return result;
     }
@@ -202,15 +201,15 @@ public class UserService {
         return result;
     }
 
-    public String getUserNameByID(Integer userID){
+    public String getUserNameByID(Integer userID) {
 
-SqlSession sqlSession=sqlSessionFactory().openSession(true);
-    UserDao userDao=sqlSession.getMapper(UserDao.class);
-    User user=userDao.getUserNameByID(userID);
+        SqlSession sqlSession = sqlSessionFactory().openSession(true);
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        User user = userDao.getUserNameByID(userID);
 
-    sqlSession.close();
-    if (user==null)return null;
-    else return user.getUserName();
+        sqlSession.close();
+        if (user == null) return null;
+        else return user.getUserName();
     }
 
 }

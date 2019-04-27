@@ -22,7 +22,7 @@ public interface UserDao {
 
     boolean addUserCookie(UserCookie userCookie);
 
-    boolean updateUserCIDByCookie(String name,String value);
+    boolean updateUserCIDByCookie(String name, String value);
 
     boolean addUserSession(UserSession session);
 

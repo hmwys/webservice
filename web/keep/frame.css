@@ -24,20 +24,104 @@
 /*    text-indent: 10px; !*里面隐形的字体首行缩进*!*/
 /*    margin: 10px auto;*/
 /*}*/
-body{font:12px/180% Arial,Helvetica,Verdana;color:#5a5a5a; margin:0; background:#FFF;}
-div,p,img,ul,li,form,input,label,span,dl,dt,dd,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
-.contact_right input.sub_mit:hover{ background:url(Wopop_files/login_m_bg.png) 0 -879px no-repeat; cursor:pointer;}
+body {
+    font: 12px/180% Arial, Helvetica, Verdana;
+    color: #5a5a5a;
+    margin: 0;
+    background: #FFF;
+}
+
+div, p, img, ul, li, form, input, label, span, dl, dt, dd, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.contact_right input.sub_mit:hover {
+    background: url(Wopop_files/login_m_bg.png) 0 -879px no-repeat;
+    cursor: pointer;
+}
+
 /* --login-- */
-.login_m{ width:403px; margin:0 auto; height:375px; margin-top:98px; /*position: absolute;left:50%;top:50%;margin-left:-202px;margin-top:-188px;*/}
-.login_logo{ text-align:center; margin-bottom:25px;}
-.login_boder{ background: url(login_m_bg.png) no-repeat; height:302px; overflow:hidden;}
-.login_padding{ padding:28px 47px 20px 47px ;}
-.login_boder h2{ color:#4f5d80; text-transform:uppercase; font-size:12px; font-weight:normal; margin-bottom:11px;}
-.forget_model_h2{color:#4f5d80; font-size:12px; font-weight:normal; margin-bottom:11px;}
-.login_boder input.txt_input{ width:295px; height:36px; border:1px solid #cad2db; background:url(Wopop_files/txt_input_bg.gif) no-repeat;  padding:0 5px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; line-height:36px; margin-bottom:10px; font-size:14px; color:#717171; font-family:Arial;}
-.login_boder input.txt_input2{ margin-bottom:20px;}
-.login_boder input.txt_input:focus{ transition:border linear .2s,box-shadow linear .2s; -moz-transition:border linear .2s,-moz-box-shadow linear .2s; -webkit-transition:border linear .2s,-webkit-box-shadow linear .2s; outline:none;border-color:rgba(173,173,173.75); box-shadow:0 0 8px rgba(173,173,173,.5); -moz-box-shadow:0 0 8px rgba(173,173,173,.5); -webkit-box-shadow:0 0 8px rgba(173,173,173,3); border:1px solid #6192c8;}
-.rem_sub input.sub_button{ float:right; width:122px; height:32px; background:url(Wopop_files/site_bg.png) no-repeat -153px -850px; border:none; color:#FFF; padding-bottom:2px; font-size:14px; font-weight:bold;}
+.login_m {
+    width: 403px;
+    margin: 0 auto;
+    height: 375px;
+    margin-top: 98px; /*position: absolute;left:50%;top:50%;margin-left:-202px;margin-top:-188px;*/
+}
+
+.login_logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login_boder {
+    background: url(login_m_bg.png) no-repeat;
+    height: 302px;
+    overflow: hidden;
+}
+
+.login_padding {
+    padding: 28px 47px 20px 47px;
+}
+
+.login_boder h2 {
+    color: #4f5d80;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 11px;
+}
+
+.forget_model_h2 {
+    color: #4f5d80;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 11px;
+}
+
+.login_boder input.txt_input {
+    width: 295px;
+    height: 36px;
+    border: 1px solid #cad2db;
+    background: url(Wopop_files/txt_input_bg.gif) no-repeat;
+    padding: 0 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    line-height: 36px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #717171;
+    font-family: Arial;
+}
+
+.login_boder input.txt_input2 {
+    margin-bottom: 20px;
+}
+
+.login_boder input.txt_input:focus {
+    transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, -moz-box-shadow linear .2s;
+    -webkit-transition: border linear .2s, -webkit-box-shadow linear .2s;
+    outline: none;
+    border-color: rgba(173, 173, 173.75);
+    box-shadow: 0 0 8px rgba(173, 173, 173, .5);
+    -moz-box-shadow: 0 0 8px rgba(173, 173, 173, .5);
+    -webkit-box-shadow: 0 0 8px rgba(173, 173, 173, 3);
+    border: 1px solid #6192c8;
+}
+
+.rem_sub input.sub_button {
+    float: right;
+    width: 122px;
+    height: 32px;
+    background: url(Wopop_files/site_bg.png) no-repeat -153px -850px;
+    border: none;
+    color: #FFF;
+    padding-bottom: 2px;
+    font-size: 14px;
+    font-weight: bold;
+}
 
 /*body{*/
 /*    margin: 0px;*/
@@ -53,4 +137,8 @@ div,p,img,ul,li,form,input,label,span,dl,dt,dd,h1,h2,h3,h4,h5,h6{margin:0;paddin
 /*    font-size: 14px;*/
 /*}*/
 
-.login_boder{ background: url(login_m_bg.png) no-repeat; height:302px; overflow:hidden;}
+.login_boder {
+    background: url(login_m_bg.png) no-repeat;
+    height: 302px;
+    overflow: hidden;
+}

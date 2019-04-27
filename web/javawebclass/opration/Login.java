@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Login extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Varify varify=new Varify();
-        varify.varify(req,resp);
+        Varify varify = new Varify();
+        varify.varify(req, resp);
     }
 }

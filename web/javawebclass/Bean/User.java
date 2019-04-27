@@ -11,9 +11,9 @@ public class User {
         super();
     }
 
-    public User(Integer ID){
+    public User(Integer ID) {
         super();
-        this.ID=ID;
+        this.ID = ID;
     }
 
     public User(Integer ID, String userName, String passwd, String email) {

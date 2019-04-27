@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ArticleDao {
 
-     List<Article> showOpenArticles();
+    List<Article> showOpenArticles();
 }

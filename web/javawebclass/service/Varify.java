@@ -12,17 +12,16 @@ public class Varify extends HttpServlet {
     private UserService service = new UserService();
 
     public void varify(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        varify(request,response,true);
+        varify(request, response, true);
     }
 
     /**
-     *
      * @param request
      * @param response
      * @param login
      * @throws IOException
      */
-    public void varify(HttpServletRequest request, HttpServletResponse response,boolean login) throws IOException {
+    public void varify(HttpServletRequest request, HttpServletResponse response, boolean login) throws IOException {
 
         HttpSession session = request.getSession();
         UserSession userSession = checkSession(session);
@@ -36,24 +35,23 @@ public class Varify extends HttpServlet {
         User user = user();
         if (userSession.getUserID() == -1) {//使用session判断当前是否已经有用户登录
             if (userCookie == null) {
-                if (login){
+                if (login) {
                     user = login(request, response, userSession, userCookie);
-                }
-                else response.getWriter().print(-1);
+                } else response.getWriter().print(-1);
                 System.out.println("session and cookie don\'t work and cookie=null");
             }//coookie判断当前是否已经有用户登录
             else if (userCookie.getUserID() == -1) {
                 System.out.println("-------------------session and cookie don\'t work and cookie\'s userID=" + userCookie.getUserID() + "---------------------");
 
-               if (login) {
-                   user = login(request, response, userSession, userCookie);//不能与上条合并,可能会空指针
-               }else response.getWriter().print(-1);
+                if (login) {
+                    user = login(request, response, userSession, userCookie);//不能与上条合并,可能会空指针
+                } else response.getWriter().print(-1);
             } else {
                 System.out.println("---------------session  doesn\'t work but cookie work--------------------");
 
                 user = loginByCookie(userSession, userCookie);
                 response.setStatus(200);
-              if (login) response.getWriter().println("The user '" + user.getUserName() + "' has logged");
+                if (login) response.getWriter().println("The user '" + user.getUserName() + "' has logged");
                 else response.getWriter().print(user.getID());
             }
         } else {
@@ -61,7 +59,7 @@ public class Varify extends HttpServlet {
 
             user = loginBySession(userSession, userCookie);
             response.setStatus(200);
-            if (login)response.getWriter().println("The user '" + user.getUserName() + "' has logged");
+            if (login) response.getWriter().println("The user '" + user.getUserName() + "' has logged");
             else response.getWriter().print(user.getID());
 
         }

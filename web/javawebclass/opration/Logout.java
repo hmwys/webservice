@@ -13,7 +13,7 @@ public class Logout extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        Cookie cookie[] = req.getCookies();
+        Cookie[] cookie = req.getCookies();
         HttpSession httpSession = req.getSession();
         UserCookie userCookie = null;
         if (cookie != null) {
