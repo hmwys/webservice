@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="javawebclass.Dao.UserDao">
+    <select id="login" resultType="user">
+        select ID,userName,passwd from user where userName=#{userName} and passwd=#{passwd}
+    </select>
+
+    <insert id="register" parameterType="user">
+        insert into user (userName,passwd) value (#{userName},#{passwd})
+    </insert>
+
+    <select id="getUserInfByID" resultType="user" parameterType="int">
+        select * from user where ID=#{ID}
+    </select>
+
+    <select id="getUserIDByCookie" resultType="userCookie">
+        select userID from cookies where cname =#{cname} and cvalue =#{cvalue}
+    </select>
+
+    <insert id="addUserCookie" parameterType="userCookie">
+        insert into cookies (cname,cvalue,userID) value (#{cname},#{cvalue},#{userID})
+    </insert>
+
+    <select id="getUserIDBySession" resultType="userSession">
+        select userID from session where sid= #{sid}
+    </select>
+
+    <update id="updateSessionByUserID" parameterType="userSession">
+        update session set sid=#{sid} where userID=#{userID}
+    </update>
+
+    <insert id="addUserSession" parameterType="userSession">
+        insert into session (sid,userID) value (#{sid},#{userID})
+    </insert>
+
+    <delete id="delSession" parameterType="userSession">
+        delete from session where userID=#{userID}
+    </delete>
+
+    <delete id="delCookie" parameterType="userSession">
+        delete from cookies where userID=#{userID}
+    </delete>
+
+    <select id="getUserNameByID" resultType="user">
+        select userName from user where ID=#{ID}
+    </select>
+
+</mapper>
+

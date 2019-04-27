@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript"src="jquery-3.4.0.js"></script>
+    <script type="text/javascript" src="jquery.form.js"></script>
+    <script type="text/javascript" src="logOp.js"  ></script>
+    <link rel="stylesheet" href="layout.css">
+    <title>登录</title>
+</head>
+<body>
+<div id="all">
+    <span onsubmit="check()" id="login-form" class="login-form" >
+<form id="loginForm" action="login" method="post" >
+    用户名<div><input id="username" name="userName" type="text" ></div><br>
+    密码<div>  <input id="password" name="password" type="password" ></div>
+        <br>
+    <input type="submit" value="登录"  >
+</form>
+</span>
+    <span id="logInfo"></span>
+    <!--<div style="height: border-box">-->
+    <!--    <br><br>-->
+    <!--    <form action="logout" method="post"><input type="submit" value="登出"> </form>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
