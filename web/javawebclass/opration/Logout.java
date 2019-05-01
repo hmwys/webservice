@@ -2,14 +2,14 @@ package javawebclass.opration;
 
 import javawebclass.Bean.UserCookie;
 import javawebclass.Bean.UserSession;
-import javawebclass.service.UserService;
+import javawebclass.dbProcess.UserDB;
 
 import javax.servlet.http.*;
 import java.io.IOException;
 
 public class Logout extends HttpServlet {
 
-    UserService service = new UserService();
+    UserDB service = new UserDB();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {

@@ -1,4 +1,4 @@
-package javawebclass.service;
+package javawebclass.dbProcess;
 
 import javawebclass.Bean.User;
 import javawebclass.Bean.UserCookie;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class UserService {
+public class UserDB {
 
     public User user() {
         return new User(-1);

@@ -4,12 +4,13 @@ package javawebclass.service;
 import javawebclass.Bean.User;
 import javawebclass.Bean.UserCookie;
 import javawebclass.Bean.UserSession;
+import javawebclass.dbProcess.UserDB;
 
 import javax.servlet.http.*;
 import java.io.IOException;
 
-public class Varify extends HttpServlet {
-    private UserService service = new UserService();
+public class Varify  {
+    private UserDB service = new UserDB();
 
     public void varify(HttpServletRequest request, HttpServletResponse response) throws IOException {
         varify(request, response, true);
