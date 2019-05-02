@@ -19,7 +19,7 @@ public class Varify  {
     /**
      * @param request
      * @param response
-     * @param login
+     * @param login //区分登录和验证操作
      * @throws IOException
      */
     public void varify(HttpServletRequest request, HttpServletResponse response, boolean login) throws IOException {
@@ -176,5 +176,23 @@ public class Varify  {
 
     private User user() {
         return service.user();
+    }
+
+    public void clean(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        Cookie[] cookie = req.getCookies();
+        HttpSession httpSession = req.getSession();
+        UserCookie userCookie = null;
+        if (cookie != null) {
+            userCookie = service.userCookie(cookie);
+        }
+        if (userCookie != null) {
+            userCookie.setUserID(service.checkCookie(userCookie));
+            service.delCookie(userCookie);
+        }
+
+
+        UserSession userSession = service.userSession(httpSession.getId(), service.checkSession(httpSession.getId()));
+        service.delSession(userSession);
+        resp.sendRedirect("index.html");
     }
 }

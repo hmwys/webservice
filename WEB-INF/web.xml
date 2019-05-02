@@ -27,7 +27,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>getText</servlet-name>
-        <servlet-class>javawebclass.opration.showArticle</servlet-class>
+        <servlet-class>javawebclass.opration.ShowArticle</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>getText</servlet-name>

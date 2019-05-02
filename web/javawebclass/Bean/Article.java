@@ -58,4 +58,16 @@ public class Article {
     public void setOpen(int open) {
         this.open = open;
     }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "AID=" + AID +
+                ", title='" + title + '\'' +
+                ", article='" + article + '\'' +
+                ", userID='" + userID + '\'' +
+                ", date=" + date +
+                ", open=" + open +
+                '}';
+    }
 }
