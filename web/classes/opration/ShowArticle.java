@@ -1,6 +1,6 @@
-package javawebclass.opration;
+package classes.opration;
 
-import javawebclass.service.Varify;
+import classes.service.ArticleService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,11 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CheckSession extends HttpServlet {
-    Varify varify = new Varify();
-
+public class ShowArticle extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        varify.varify(req, resp, false);
+        ArticleService service=new ArticleService();
+        service.show(req, resp);
     }
 }

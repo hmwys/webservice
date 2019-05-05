@@ -1,13 +1,12 @@
-package javawebclass.Bean;
+package classes.Bean;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 public class Article {
     private Integer AID;
     private String title;
     private String article;
-    private String userID;
+    private Integer userID;
     private Date date;
     private int open;
 
@@ -35,11 +34,11 @@ public class Article {
         this.article = article;
     }
 
-    public String getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 

@@ -1,19 +1,26 @@
 var resptext;
-var xmlhttp1;
+var xmlhttp;
 if (window.XMLHttpRequest) {
     // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-    xmlhttp1 = new XMLHttpRequest();
+    xmlhttp = new XMLHttpRequest();
 } else {
     // IE6, IE5 浏览器执行代码
-    xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 }
-xmlhttp1.onreadystatechange = function () {
+xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        resptext=xmlhttp.responseText;
+        if (resptext != -1) {
+            // document.getElementById("all").style.visibility = "visible";
+                document.getElementById("logInfo").innerHTML = resptext;
+        }else {
+            document.getElementById("login-form").style.visibility="visible";
 
-    if (xmlhttp1.responseText != -1) document.getElementById("all").style.visibility = "hidden";
-    else document.getElementById("logInfo").innerHTML = xmlhttp1.responseText;
+        }
+    }
 };
-xmlhttp1.open("get", "/jweb/chksid", true);
-xmlhttp1.send();
+xmlhttp.open("get", "/chksid", true);
+xmlhttp.send();
 
 
 var info = document.getElementById("logInfo");
@@ -52,6 +59,5 @@ $(document).ready(function () {
     $("#loginForm").ajaxForm(function (data) {
         alert(data);
         info.innerHTML = "密码错误";
-        //Alert("post success.");
     });
 });

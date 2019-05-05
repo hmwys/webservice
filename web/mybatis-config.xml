@@ -7,7 +7,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
-        <package name="javawebclass.Bean"/>
+        <package name="classes.Bean"/>
     </typeAliases>
 
     <environments default="development">
@@ -22,7 +22,7 @@
         </environment>
     </environments>
     <mappers>
-        <package name="javawebclass.Dao"/>
+        <package name="classes.Dao"/>
     </mappers>
 
 </configuration>

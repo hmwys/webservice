@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="javawebclass.Dao.UserDao">
+<mapper namespace="classes.Dao.UserDao">
     <select id="login" resultType="user">
         select ID,userName,passwd from user where userName=#{userName} and passwd=#{passwd}
     </select>

@@ -1,6 +1,6 @@
-package javawebclass.Dao;
+package classes.Dao;
 
-import javawebclass.Bean.Article;
+import classes.Bean.Article;
 
 import java.util.List;
 

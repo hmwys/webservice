@@ -1,4 +1,4 @@
-package javawebclass.Bean;
+package classes.Bean;
 
 public class UserCookie {
     private String cname;

@@ -1,4 +1,4 @@
-package javawebclass.Bean;
+package classes.Bean;
 
 public class UserSession {
     private String sid;

@@ -1,10 +1,10 @@
-package javawebclass.service;
+package classes.service;
 
 
-import javawebclass.Bean.User;
-import javawebclass.Bean.UserCookie;
-import javawebclass.Bean.UserSession;
-import javawebclass.dbProcess.UserDB;
+import classes.Bean.User;
+import classes.Bean.UserCookie;
+import classes.Bean.UserSession;
+import classes.dbProcess.UserDB;
 
 import javax.servlet.http.*;
 import java.io.IOException;

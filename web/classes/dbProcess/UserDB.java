@@ -1,9 +1,9 @@
-package javawebclass.dbProcess;
+package classes.dbProcess;
 
-import javawebclass.Bean.User;
-import javawebclass.Bean.UserCookie;
-import javawebclass.Bean.UserSession;
-import javawebclass.Dao.UserDao;
+import classes.Bean.User;
+import classes.Bean.UserCookie;
+import classes.Bean.UserSession;
+import classes.Dao.UserDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

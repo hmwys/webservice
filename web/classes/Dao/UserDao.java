@@ -1,8 +1,8 @@
-package javawebclass.Dao;
+package classes.Dao;
 
-import javawebclass.Bean.User;
-import javawebclass.Bean.UserCookie;
-import javawebclass.Bean.UserSession;
+import classes.Bean.User;
+import classes.Bean.UserCookie;
+import classes.Bean.UserSession;
 
 public interface UserDao {
     User getUserInfByID(Integer ID);

@@ -1,9 +1,6 @@
-package javawebclass.opration;
+package classes.opration;
 
-import javawebclass.Bean.UserCookie;
-import javawebclass.Bean.UserSession;
-import javawebclass.dbProcess.UserDB;
-import javawebclass.service.Varify;
+import classes.service.Varify;
 
 import javax.servlet.http.*;
 import java.io.IOException;

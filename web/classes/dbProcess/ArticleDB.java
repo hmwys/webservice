@@ -1,7 +1,7 @@
-package javawebclass.dbProcess;
+package classes.dbProcess;
 
-import javawebclass.Bean.Article;
-import javawebclass.Dao.ArticleDao;
+import classes.Bean.Article;
+import classes.Dao.ArticleDao;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
