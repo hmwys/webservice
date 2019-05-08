@@ -13,6 +13,6 @@ public class CheckSession extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        varify.varify(req, resp, false);
+        varify.varify(req, resp, false,false);
     }
 }

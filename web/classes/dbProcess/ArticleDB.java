@@ -12,6 +12,11 @@ import java.io.InputStream;
 import java.util.List;
 
 public class ArticleDB {
+
+    public Article article(Integer AID, Integer userID, int open) {
+        return new Article(AID, userID, open);
+    }
+
     private SqlSessionFactory sqlSessionFactory() {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;
@@ -30,6 +35,22 @@ public class ArticleDB {
         List<Article> articles = articalDao.showOpenArticles();
         sqlSession.close();
         return articles;
+    }
+
+    public List<Article> getUserArticles(Integer userID) {
+        SqlSession sqlSession = sqlSessionFactory().openSession(true);
+        ArticleDao articalDao = sqlSession.getMapper(ArticleDao.class);
+        List<Article> articles = articalDao.showUserArticles(userID);
+        sqlSession.close();
+        return articles;
+    }
+
+    public boolean setOpenStatus(Integer AID, Integer userID, int open) {
+        SqlSession sqlSession = sqlSessionFactory().openSession(true);
+        ArticleDao articleDao = sqlSession.getMapper(ArticleDao.class);
+        boolean result = articleDao.modifyOpenStatus(article(AID, userID, open));
+        sqlSession.close();
+        return result;
     }
 
 

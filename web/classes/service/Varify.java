@@ -5,24 +5,39 @@ import classes.Bean.User;
 import classes.Bean.UserCookie;
 import classes.Bean.UserSession;
 import classes.dbProcess.UserDB;
+import classes.utils.CollectionUtils;
 
 import javax.servlet.http.*;
 import java.io.IOException;
 
-public class Varify  {
+public class Varify {
     private UserDB service = new UserDB();
+    private CollectionUtils collectionUtils=new CollectionUtils();
 
     public void varify(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        varify(request, response, true);
+        varify(request, response, true, false,true);
+    }
+
+    public User varify(HttpServletRequest request, HttpServletResponse response, boolean admin) throws IOException {
+        return varify(request, response, false, true,true);
+    }
+
+    public void varify(HttpServletRequest request, HttpServletResponse response,boolean login,boolean admin) throws IOException {
+        varify(request, response, false, false,true);
     }
 
     /**
      * @param request
      * @param response
-     * @param login //区分登录和验证操作
+     * @param login    区分登录和验证操作
+     * @param admin   区分登陆页面和管理界面
+     * @param requireResp 有些请求不需要response
      * @throws IOException
      */
-    public void varify(HttpServletRequest request, HttpServletResponse response, boolean login) throws IOException {
+    public User varify(HttpServletRequest request, HttpServletResponse response, boolean login, boolean admin,boolean requireResp) throws IOException {
+
+        response.setCharacterEncoding("utf8");
+        response.setHeader("Content-Type", "text/html");
 
         HttpSession session = request.getSession();
         UserSession userSession = checkSession(session);
@@ -34,44 +49,62 @@ public class Varify  {
             userCookie = checkUserCookie(userCookie);
         }
         User user = user();
-        if (userSession.getUserID() == -1) {//使用session判断当前是否已经有用户登录
-            if (userCookie == null) {
+        if (userSession.getUserID() == -1) {    //使用session判断当前是否已经有用户登录
+            if (userCookie == null) {           //coookie判断当前是否已经有用户登录
                 if (login) {
                     user = login(request, response, userSession, userCookie);
-                } else response.getWriter().print(-1);
+                } else if (admin) {
+                    response.sendRedirect("loginPage.html");
+                } else {
+                    response.getWriter().print(-1);
+                }
                 System.out.println("session and cookie don\'t work and cookie=null");
-            }//coookie判断当前是否已经有用户登录
-            else if (userCookie.getUserID() == -1) {
+            } else if (userCookie.getUserID() == -1) {
                 System.out.println("-------------------session and cookie don\'t work and cookie\'s userID=" + userCookie.getUserID() + "---------------------");
 
                 if (login) {
                     user = login(request, response, userSession, userCookie);//不能与上条合并,可能会空指针
-                } else response.getWriter().print(-1);
-            } else {
+                } else if (admin) {
+                    response.sendRedirect("loginPage.html");
+                } else {
+                    response.getWriter().print(-1);
+
+                }
+            } else if (requireResp){
                 System.out.println("---------------session  doesn\'t work but cookie work--------------------");
 
                 user = loginByCookie(userSession, userCookie);
                 response.setStatus(200);
-                if (login) response.getWriter().println("The user '" + user.getUserName() + "' has logged");
-                else response.getWriter().print(user.getID());
+                if (login) {
+                    response.getWriter().println("The user '" + user.getUserName() + "' has logged");
+                } else if (admin) {
+                    response.getWriter().print("<h1>欢迎回来," + user.getUserName() + "</h1>");
+                } else {
+                    response.getWriter().print(user.getID());
+                }
             }
         } else {
             System.out.println("---------------session   works --------------------");
 
             user = loginBySession(userSession, userCookie);
             response.setStatus(200);
-            if (login) response.getWriter().println("The user '" + user.getUserName() + "' has logged");
-            else response.getWriter().print(user.getID());
-
+            if (login) {
+                response.getWriter().println("The user '" + user.getUserName() + "' has logged");
+            } else if (admin) {
+                response.getWriter().print("<h1>欢迎回来," + user.getUserName() + "</h1>");
+            } else if (requireResp){
+                response.getWriter().print(user.getID());
+            }
         }
 
 
         System.out.println(user);
+        return user;
 
     }
 
     private User login(HttpServletRequest request, HttpServletResponse response, UserSession userSession, UserCookie userCookie) throws IOException {
-        User user = service.checkUser(service.toRecognizableMap(request.getParameterMap()));
+        User user = service.checkUser(collectionUtils.toRecognizableMap(request.getParameterMap()));
         user = service.login(user);
         if (userCookie != null)
             userCookie = service.userCookie(request.getCookies());
@@ -86,9 +119,11 @@ public class Varify  {
 
             boolean addCookieResult = false;
             if (userCookie != null) {
-                userCookie.setUserID(user.getID());
-                service.addCookie(userCookie);
-                addCookieResult = true;
+                if (service.checkCookie(userCookie)!=user.getID()) {
+                    userCookie.setUserID(user.getID());
+                    service.addCookie(userCookie);
+                    addCookieResult = true;
+                }else System.out.println("cookie冲突");
             } else System.out.println("cookie为null");
             System.out.println("cookie:" + addCookieResult);
 
@@ -99,11 +134,10 @@ public class Varify  {
                 updateSessionResult = true;
             } else addUserSession(userSession);
             System.out.println("updateSession:" + updateSessionResult);
-            response.getWriter().println("<body>Login success</body>");
-            response.setStatus(203);
+            response.getWriter().print("success");
             return user;
         } else {
-            response.getWriter().println("<body>Login failed</body>");
+            response.getWriter().println("登录失败，帐号或密码错了吧");
             response.setStatus(200);
 
             return user();
@@ -194,5 +228,11 @@ public class Varify  {
         UserSession userSession = service.userSession(httpSession.getId(), service.checkSession(httpSession.getId()));
         service.delSession(userSession);
         resp.sendRedirect("index.html");
+    }
+
+    private void loginSuccessResponse(HttpServletResponse response, User user) throws IOException {
+        response.sendRedirect("admin.html");
+        response.getWriter().print("<h1>欢迎回来," + user.getUserName() + "</h1>");
+
     }
 }

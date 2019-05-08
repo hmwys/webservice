@@ -58,6 +58,27 @@ public class Article {
         this.open = open;
     }
 
+    public Article(Integer AID, String title, String article, Integer userID, Date date, int open) {
+        super();
+        this.AID = AID;
+        this.title = title;
+        this.article = article;
+        this.userID = userID;
+        this.date = date;
+        this.open = open;
+    }
+
+    public Article(Integer AID, int open) {
+        this.AID = AID;
+        this.open = open;
+    }
+
+    public Article(Integer AID, Integer userID, int open) {
+        this.AID = AID;
+        this.userID = userID;
+        this.open = open;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
