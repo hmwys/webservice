@@ -17,6 +17,10 @@ public class ArticleDB {
         return new Article(AID, userID, open);
     }
 
+    public Article article(Integer AID, String article) {
+        return new Article(AID, article);
+    }
+
     private SqlSessionFactory sqlSessionFactory() {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;

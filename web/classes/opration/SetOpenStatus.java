@@ -1,6 +1,6 @@
 package classes.opration;
 
-import classes.service.ArticleService;
+import classes.controller.ArticleService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,5 +13,6 @@ public class SetOpenStatus extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArticleService service=new ArticleService();
         service.setStatus(req,resp);
+
     }
 }

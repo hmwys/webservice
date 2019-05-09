@@ -6,32 +6,33 @@
     <link href="layout.css" rel="stylesheet">
     <link href="favicon.ico" rel="shortcut icon">
     <script>
-      var xmlhttp;
-      if (window.XMLHttpRequest) {
-        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-        xmlhttp = new XMLHttpRequest();
-      } else {
-        // IE6, IE5 浏览器执行代码
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-          document.getElementById("textArea").innerHTML = xmlhttp.responseText;
-        }else if (xmlhttp.status==302){
-            window.location.href="/loginPage.html";
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // IE6, IE5 浏览器执行代码
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("textArea").innerHTML = xmlhttp.responseText;
+            } else if (xmlhttp.status == 302) {
+                window.location.href = "loginPage.html";
+            }
 
-      };
-      xmlhttp.open("GET", "adShow", true);
-      xmlhttp.send();
-      function setStatus() {
-          xmlhttp.open("GET", "setStatus", true);
-      }
+        };
+        xmlhttp.open("GET", "adShow", true);
+        xmlhttp.send();
+
+        function setStatus() {
+            xmlhttp.open("GET", "setStatus", true);
+        }
     </script>
 </head>
 <body>
 <div class="all">
-    <div >
+    <div>
     </div>
 
     <span class="text1" id="text1">
@@ -41,7 +42,8 @@
       <p style="text-indent: 2em;"></p>
 
   </span>
-<a href="/adShow?" ></a>
+
+    <div class="logout"><a href="logout" style="text-align: center">登出</a></div>
 
 </div>
 

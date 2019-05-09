@@ -16,7 +16,7 @@ xmlhttp.onreadystatechange = function () {
     }
 }
 ;
-xmlhttp.open("get", "/chksid", true);
+xmlhttp.open("get", "chksid", true);
 xmlhttp.send();
 
 $(document).ready(function () {

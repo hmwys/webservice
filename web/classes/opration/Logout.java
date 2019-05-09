@@ -1,6 +1,6 @@
 package classes.opration;
 
-import classes.service.Varify;
+import classes.controller.Varify;
 
 import javax.servlet.http.*;
 import java.io.IOException;

@@ -11,6 +11,6 @@ xmlhttp.onreadystatechange = function () {
         document.getElementById("textArea").innerHTML = xmlhttp.responseText;
     }
 };
-xmlhttp.open("GET", "/getText", true);
+xmlhttp.open("GET", "getText", true);
 xmlhttp.send();
 

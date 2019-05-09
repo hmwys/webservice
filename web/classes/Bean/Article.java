@@ -79,6 +79,11 @@ public class Article {
         this.open = open;
     }
 
+    public Article(Integer AID, String article) {
+        this.AID = AID;
+        this.article = article;
+    }
+
     @Override
     public String toString() {
         return "Article{" +

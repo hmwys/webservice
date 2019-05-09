@@ -27,4 +27,8 @@ public class HtmlForm {
                 "</a></div><br>";
     }
 
+    public String articlesAreEmpty(){
+        return "<h3 class=\"article\" style=\"text-align: center\"><br><br><br>这里什么都没有...<br><br><br><br><br><br></h3>";
+    }
+
 }

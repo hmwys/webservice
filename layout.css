@@ -37,6 +37,13 @@ body {
     background: aliceblue url("web/pic/bg1.jpg") no-repeat fixed;
 }
 
+.logout{
+    position: static;
+    text-align: center;
+}
+
+
+
 .left-side {
     position: absolute;
     /* top:30%; */
@@ -69,7 +76,7 @@ h1 {
     background-color: whitesmoke;
 }
 
-/*æ—¥åŽ†å¼€å§‹*/
+/*日历开始*/
 * {
     box-sizing: border-box;
 }
@@ -164,7 +171,7 @@ ul {
     }
 }
 
-/*æ—¥åŽ†ç»“æŸ*/
+/*日历结束*/
 
 .login-form {
     border-radius: 15px;
