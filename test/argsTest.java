@@ -4,10 +4,10 @@ public class argsTest {
 //        System.out.println(args);
         System.out.println(args.length);
 
-        for (String s:args
-             ) {
+        for (String s : args
+        ) {
 
-            System.out.printf(s+"\n");
+            System.out.printf(s + "\n");
         }
 
         System.out.println();

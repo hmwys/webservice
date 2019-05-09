@@ -1,6 +1,6 @@
 package classes.opration;
 
-import classes.controller.Varify;
+import classes.service.Varify;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +13,6 @@ public class CheckSession extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        varify.varify(req, resp, false,false);
+        varify.varify(req, resp, false, false);
     }
 }

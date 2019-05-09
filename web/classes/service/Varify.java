@@ -1,4 +1,4 @@
-package classes.controller;
+package classes.service;
 
 
 import classes.Bean.User;
@@ -12,29 +12,29 @@ import java.io.IOException;
 
 public class Varify {
     private UserDB service = new UserDB();
-    private CollectionUtils collectionUtils=new CollectionUtils();
+    private CollectionUtils collectionUtils = new CollectionUtils();
 
     public void varify(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        varify(request, response, true, false,true);
+        varify(request, response, true, false, true);
     }
 
     public User varify(HttpServletRequest request, HttpServletResponse response, boolean admin) throws IOException {
-        return varify(request, response, false, true,true);
+        return varify(request, response, false, true, true);
     }
 
-    public void varify(HttpServletRequest request, HttpServletResponse response,boolean login,boolean admin) throws IOException {
-        varify(request, response, false, false,true);
+    public void varify(HttpServletRequest request, HttpServletResponse response, boolean login, boolean admin) throws IOException {
+        varify(request, response, false, false, true);
     }
 
     /**
      * @param request
      * @param response
-     * @param login    区分登录和验证操作
-     * @param admin   区分登陆页面和管理界面
+     * @param login       区分登录和验证操作
+     * @param admin       区分登陆页面和管理界面
      * @param requireResp 有些请求不需要response
      * @throws IOException
      */
-    public User varify(HttpServletRequest request, HttpServletResponse response, boolean login, boolean admin,boolean requireResp) throws IOException {
+    public User varify(HttpServletRequest request, HttpServletResponse response, boolean login, boolean admin, boolean requireResp) throws IOException {
 
         response.setCharacterEncoding("utf8");
         response.setHeader("Content-Type", "text/html");
@@ -70,7 +70,7 @@ public class Varify {
                     response.getWriter().print(-1);
 
                 }
-            } else if (requireResp){
+            } else if (requireResp) {
                 System.out.println("---------------session  doesn\'t work but cookie work--------------------");
 
                 user = loginByCookie(userSession, userCookie);
@@ -95,7 +95,7 @@ public class Varify {
 
             } else if (admin) {
                 response.getWriter().print("<h1>欢迎回来," + user.getUserName() + "</h1>");
-            } else if (requireResp){
+            } else if (requireResp) {
                 response.getWriter().print(user.getID());
             }
         }
@@ -122,11 +122,11 @@ public class Varify {
 
             boolean addCookieResult = false;
             if (userCookie != null) {
-                if (service.checkCookie(userCookie)!=user.getID()) {
+                if (service.checkCookie(userCookie) != user.getID()) {
                     userCookie.setUserID(user.getID());
                     service.addCookie(userCookie);
                     addCookieResult = true;
-                }else System.out.println("cookie冲突");
+                } else System.out.println("cookie冲突");
             } else System.out.println("cookie为null");
             System.out.println("cookie:" + addCookieResult);
 

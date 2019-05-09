@@ -22,12 +22,12 @@ public class HtmlForm {
 
     public String oprationHtml(Article article) {
         return "<div style=\"text-align: center\"><a href=\"setStatus?AID=" + article.getAID() +
-                "&openStatus="+article.getOpen()+
+                "&openStatus=" + article.getOpen() +
                 "\" >" + openStatus(article.getOpen()) +
                 "</a></div><br>";
     }
 
-    public String articlesAreEmpty(){
+    public String articlesAreEmpty() {
         return "<h3 class=\"article\" style=\"text-align: center\"><br><br><br>这里什么都没有...<br><br><br><br><br><br></h3>";
     }
 

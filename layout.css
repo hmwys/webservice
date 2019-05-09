@@ -37,11 +37,10 @@ body {
     background: aliceblue url("web/pic/bg1.jpg") no-repeat fixed;
 }
 
-.logout{
+.logout {
     position: static;
     text-align: center;
 }
-
 
 
 .left-side {

@@ -1,4 +1,4 @@
-package classes.controller;
+package classes.service;
 
 import classes.Bean.Article;
 import classes.Bean.User;

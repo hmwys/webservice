@@ -2830,8 +2830,9 @@
 
         return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-}
-	var rsingleTag = (/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i);
+    }
+
+    var rsingleTag = (/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i);
 
 
 // Implement the identical functionality for filter and not
@@ -5417,7 +5418,7 @@
             return;
         }
 
-        // Register the controller as a special universal handler for all event namespaces
+        // Register the service as a special universal handler for all event namespaces
         dataPriv.set(el, type, false);
         jQuery.event.add(el, type, {
             namespace: false,
