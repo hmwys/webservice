@@ -33,7 +33,7 @@ public class UserDB {
     }
 
     private SqlSessionFactory sqlSessionFactory() {
-        String resource = "WEB-INF/lib/mybatis-config.xml";
+        String resource = "classes/mybatis-config.xml";
         InputStream inputStream = null;
         SqlSessionFactory sqlSessionFactory = null;
         try {
@@ -100,10 +100,6 @@ public class UserDB {
 
     public int checkCookie(UserCookie userCookie) {
 
-//        for (UserCookie cookie1:cookie){
-//            userDao.getIDByCookie(cookie1.getName(),cookie1.getValue());
-//            System.out.println(cookie1.getName()+"="+cookie1.getValue());
-//
         if (userCookie == null) {
             return -1;
         } else {

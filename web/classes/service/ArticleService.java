@@ -80,8 +80,8 @@ public class ArticleService {
 
     private String toArticleText(Article article, boolean admin) {
         String title, body, author, date, articleText;
-        title = "<h1>" + htmlForm.escHtml(article.getTitle()) + "</h1>";
-        body = "<p>" + htmlForm.completeText(article.getArticle()) + "</p>";
+        title = "<h1>" + article.getTitle() + "</h1>";
+        body = "<p>" + htmlForm.toPara(article.getArticle()) + "</p>";
         author = "<div class=\"author\">" + userDB.getUserNameByID(article.getUserID()) + "</div>";
         date = "<div class=\"date\">" + new SimpleDateFormat("yyyy-MM-dd").format(article.getDate()) + "</div>";
         articleText = "<div class=\"article\">" + title + htmlForm.toPara(body) + author + date;

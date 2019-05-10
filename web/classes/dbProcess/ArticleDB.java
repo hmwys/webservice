@@ -22,7 +22,7 @@ public class ArticleDB {
     }
 
     private SqlSessionFactory sqlSessionFactory() {
-        String resource = "WEB-INF/lib/mybatis-config.xml";
+        String resource = "classes/mybatis-config.xml";
         InputStream inputStream = null;
         try {
             inputStream = Resources.getResourceAsStream(resource);
