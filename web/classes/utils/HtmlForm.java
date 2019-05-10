@@ -16,7 +16,7 @@ public class HtmlForm {
         return body.replaceAll("\\\n", "<br>");
     }
 
-    public String toHtml(String text) {
+    public String escHtml(String text) {
         return StringEscapeUtils.escapeHtml4(text);
     }
 
@@ -31,4 +31,28 @@ public class HtmlForm {
         return "<h3 class=\"article\" style=\"text-align: center\"><br><br><br>这里什么都没有...<br><br><br><br><br><br></h3>";
     }
 
+    public String htImgHead(String body){
+        return body.replaceAll("HtpiC","<img class=\"articles\" src=\"");
+    }
+
+    public String htImgEnd(String body) {
+        return body.replaceAll("HtpicE","\">");
+    }
+
+    private String htStrongHead(String body){
+        return body.replaceAll("HtstronG","<div class=\"strongp\"><strong>");
+    }
+
+    private String htStrongEnd(String body){
+        return body.replaceAll("HtstrongE","</strong></div>");
+    }
+
+    public String completeText(String body){
+        String s=toPara(body);
+        s=htImgHead(s);
+        s=htImgEnd(s);
+        s=htStrongHead(s);
+        s=htStrongEnd(s);
+        return s;
+    }
 }

@@ -12,10 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class UserDB {
 
@@ -36,7 +33,7 @@ public class UserDB {
     }
 
     private SqlSessionFactory sqlSessionFactory() {
-        String resource = "mybatis-config.xml";
+        String resource = "WEB-INF/lib/mybatis-config.xml";
         InputStream inputStream = null;
         SqlSessionFactory sqlSessionFactory = null;
         try {

@@ -17,10 +17,12 @@ public class regexTest {
                 "如今，有人发出这样的疑问，“不放假不发钱，我们为什么要过五四？”\n" +
                 "\n" +
                 "\n" +
+                "htpicpic/p01.pnghtpice"+
                 "作者：共青团中央\n" +
                 "https://www.bilibili.com/read/cv2506739\n" +
                 "出处： bilibili";
         System.out.printf(s1.replaceAll("\\\n", "<br>"));
+        System.out.println(s1.replaceAll("htpic","<img src="));
         System.out.println(s1);
     }
 }

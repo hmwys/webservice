@@ -18,6 +18,14 @@ input {
     right: 2%;
 }
 
+.strongp{
+    text-align: center;
+}
+
+img.articles{
+    width:100%;
+}
+
 p {
     margin-left: 2%;
     margin-right: 2%;
