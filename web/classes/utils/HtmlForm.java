@@ -12,8 +12,10 @@ public class HtmlForm {
     }
 
     public String toPara(String body) {
-        String body1=setImgAttr(body);
-        return body1.replaceAll("\\\n", "<br>");
+        String body1;
+        body1 = setImgAttr(body);
+        body1=body1.replaceAll("\\n","<br></p><p>");
+        return body1.replaceAll("\\n", "<br>");
     }
 
 

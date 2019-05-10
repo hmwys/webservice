@@ -1,6 +1,6 @@
 public class regexTest {
     public static void main(String[] args) {
-        String s1 = "1919年，山河动荡。百年前的中国，如同风雨飘摇里的一座将倾的大厦。\n" +
+        String s1 = "<p>1919年，山河动荡。百年前的中国，如同风雨飘摇里的一座将倾的大厦。\n" +
                 "\n" +
                 "\n" +
                 "\n" +
@@ -20,9 +20,8 @@ public class regexTest {
                 "htpicpic/p01.pnghtpice"+
                 "作者：共青团中央\n" +
                 "https://www.bilibili.com/read/cv2506739\n" +
-                "出处： bilibili";
-        System.out.printf(s1.replaceAll("\\\n", "<br>"));
-        System.out.println(s1.replaceAll("htpic","<img src="));
+                "出处： bilibili</p>";
+        System.out.println(s1.replaceAll("\\n", "<br></p><p>"));
         System.out.println(s1);
     }
 }

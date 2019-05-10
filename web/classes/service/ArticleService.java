@@ -92,6 +92,12 @@ public class ArticleService {
         return articleText;
     }
 
+    /**
+     * 设置文章状态，开放或隐藏
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void setStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServiceUtils serviceUtils = new ServiceUtils();
         User user = varify.varify(request, response, false, false, false);

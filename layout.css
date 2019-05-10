@@ -1,9 +1,3 @@
-login_boder {
-    border-style: solid;
-    border-color: lightskyblue;
-
-}
-
 input {
     border-style: solid;
     border-radius: 0px;
@@ -11,36 +5,39 @@ input {
 }
 
 .text {
-
     position: absolute;
     border-style: none;
     left: 40%;
-    right: 2%;
+    right: 10%;
 }
 
 
-
-img.articles{
-    width:100%;
+cite {
+    text-align: center;
 }
 
-p {
+img.articles {
+    width: 96%;
     margin-left: 2%;
-    margin-right: 2%;
 }
+
 
 .top {
-
     margin: 300px;
     position: page;
     top: 60%;
 }
 
+.login {
+    position: fixed;
+    right: 7%;
+}
 
 body {
     font-family: Verdana, sans-serif;
     background-size: 100%;
     background: aliceblue url("web/pic/bg1.jpg") no-repeat fixed;
+    background-size: cover;
 }
 
 .logout {
@@ -48,14 +45,13 @@ body {
     text-align: center;
 }
 
-
 .left-side {
-    position: absolute;
-    /* top:30%; */
-    left: 2%;
-    right: 70%;
+    position: fixed;
+    padding: 40px;
+    top: 10%;
+    left: 10%;
+    right: 65%;
 }
-
 h1 {
     text-align: center;
 }
@@ -75,10 +71,12 @@ h1 {
     border-style: solid;
     border-radius: 15px;
     margin-top: 30px;
+    padding: 23px;
+    border-color: #9a8686;
     position: relative;
     left: 0;
     right: 0;
-    background-color: whitesmoke;
+    background-color: #ffffff;
 }
 
 /*日历开始*/
@@ -89,7 +87,6 @@ h1 {
 ul {
     list-style-type: none;
 }
-
 
 .month {
     padding: 30px 30px;
